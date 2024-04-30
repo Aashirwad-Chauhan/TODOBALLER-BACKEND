@@ -16,7 +16,13 @@ config({
 app.use(express.json()); //middleware
 app.use(cookieParser());
 app.use(cors({
-    origin: [process.env.FRONT_END_URL],
+    origin: [
+        "https://todo-frontend-opal-seven.vercel.app",
+        "http://localhost:5173",
+        "http://localhost:4173",
+        process.env.FRONT_END_URL,
+        process.env.FRONT_END_URL_ORIGINAL,
+    ],
     methods:["GET", "POST", "PUT", "DELETE"],
     credentials:true,
 }));
